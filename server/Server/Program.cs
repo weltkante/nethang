@@ -110,7 +110,7 @@ namespace AppNamespace
                         if (Interlocked.Exchange(ref mGatewayOfflineReported, 1) == 0)
                         {
                             ServerEvents.Log.Error("Gateway did not send regular pings, preparing for emergency shutdown.");
-                            Utils.ReportException("Aborting process because gateway did not send regular pings.", true);
+                            Utils.ReportException("Aborting process because gateway did not send regular pings.", false);
                         }
 
                         Volatile.Write(ref mGatewayTimestamp, Environment.TickCount);
